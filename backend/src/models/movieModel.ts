@@ -1,16 +1,16 @@
-interface Movie {
+export interface Movie {
   adult: boolean;
-  backdropPath: string;
-  genreIds: number[];
+  backdrop_path: string;
+  genre_ids: number[];
   id: number;
-  originalLanguage: string;
-  originalTitle: string;
+  original_language: string;
+  original_title: string;
   overview: string;
   popularity: number;
-  posterPath: string;
-  releaseDate: string;
+  poster_path: string;
+  release_date: string;
   title: string;
   video: boolean;
-  voteAverage: number;
-  voteCount: number;
+  vote_average: number;
+  vote_count: number;
 }

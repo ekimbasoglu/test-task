@@ -9,6 +9,7 @@ export const getAllMovies = async (req: Request, res: Response) => {
       .status(500)
       .json({ message: "Problem with the server, no movies found" });
   }
+  
 
   res.json(movies);
 };
