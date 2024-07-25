@@ -25,6 +25,6 @@ env.example for backend
 
 ```
 
-![react](https://giphy.com/gifs/dNbk9eklZp10ZL5N1I)
+![react](https://media.giphy.com/media/dNbk9eklZp10ZL5N1I/giphy.gif)
 
 ### [contact](mailto:ekimbasoglu@hotmail.com)
