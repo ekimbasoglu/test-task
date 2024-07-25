@@ -7,7 +7,6 @@ const baseUrl = "https://api.themoviedb.org/3";
 export const getPopularMovies = async (): Promise<Movie[] | null> => {
   try {
     const url = `${baseUrl}/movie/popular?api_key=${apiKey}`;
-    console.log(url);
     const response = await axios.get(url);
     const movies: Movie[] = response.data.results.map((movie: any) => ({
       adult: movie.adult,
