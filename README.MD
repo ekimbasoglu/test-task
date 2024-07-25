@@ -17,7 +17,7 @@
     $ cd test-task && npm run dev
 ```
 
-ENV.example for Backend
+env.example for backend
 
 ```
   PORT=
