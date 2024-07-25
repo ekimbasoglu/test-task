@@ -1,35 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import Modal from "./components/Modal";
+import axios from "axios";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [pdfData, setPdfData] = useState<Blob | null>(null);
+
+  const fetchPopularMoviesPdf = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/api/movies/", {
+        responseType: "blob",
+      });
+      setPdfData(response.data);
+      setIsModalOpen(true);
+    } catch (error) {
+      console.error("Error fetching popular movies PDF:", error);
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+      <h1 className="text-4xl font-bold mb-4">[movie fetcher]</h1>
+      <button
+        onClick={fetchPopularMoviesPdf}
+        className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+      >
+        fetch!
+      </button>
 
-export default App
+      {pdfData && (
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <embed
+            src={URL.createObjectURL(pdfData)}
+            type="application/pdf"
+            width="100%"
+            height="600px"
+          />
+        </Modal>
+      )}
+    </div>
+  );
+};
+
+export default App;
