@@ -30,3 +30,30 @@ export const getPopularMovies = async (): Promise<Movie[] | null> => {
     return null;
   }
 };
+
+export const getMovieById = async (movieId: number): Promise<Movie | null> => {
+  try {
+    const url = `${baseUrl}/movie/${movieId}?api_key=${apiKey}`;
+    const response = await axios.get(url);
+    const movie: Movie = {
+      adult: response.data.adult,
+      backdrop_path: response.data.backdrop_path,
+      genre_ids: response.data.genre_ids,
+      id: response.data.id,
+      original_language: response.data.original_language,
+      original_title: response.data.original_title,
+      overview: response.data.overview,
+      popularity: response.data.popularity,
+      poster_path: response.data.poster_path,
+      release_date: response.data.release_date,
+      title: response.data.title,
+      video: response.data.video,
+      vote_average: response.data.vote_average,
+      vote_count: response.data.vote_count,
+    };
+    return movie;
+  } catch (error) {
+    console.error("Failed to fetch movie:", error.message);
+    return null;
+  }
+};
