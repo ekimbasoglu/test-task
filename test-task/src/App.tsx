@@ -15,6 +15,7 @@ const App: React.FC = () => {
       setIsModalOpen(true);
     } catch (error) {
       console.error("Error fetching popular movies PDF:", error);
+      alert("Server is not working!");
     }
   };
 
