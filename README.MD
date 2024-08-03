@@ -25,6 +25,14 @@ env.example for backend
 
 ```
 
+env.example for frontend
+
+```
+  VITE_XANO_ENDPOINT=(endpoint must have response object as PDF)
+
+```
+
+v1
 ![react](https://media.giphy.com/media/dNbk9eklZp10ZL5N1I/giphy.gif)
 
 ### [contact](mailto:ekimbasoglu@hotmail.com)
