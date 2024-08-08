@@ -8,7 +8,7 @@ const App = () => {
 
   const fetchPopularMoviesPdf = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/movies/", {
+      const response = await axios.get(import.meta.env.VITE_LOCAL_ENDPOINT, {
         responseType: "blob",
       });
       const pdfUrl = URL.createObjectURL(response.data);
