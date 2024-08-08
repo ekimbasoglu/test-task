@@ -28,7 +28,8 @@ env.example for backend
 env.example for frontend
 
 ```
-  VITE_XANO_ENDPOINT=(endpoint must have response object as PDF)
+  VITE_XANO_ENDPOINT=[insert-xano-endpoint]
+  VITE_LOCAL_ENDPOINT=http://localhost:3000/api/movies/
 
 ```
 
